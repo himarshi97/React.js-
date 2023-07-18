@@ -30,17 +30,13 @@ const Repository = () => {
     const records = issue.slice(firstIndex, lastIndex);
     const page = Math.ceil(issue.length / recordsPerPage);
     console.log(page);
-    const numbers = [...Array(page + 1)].slice(1);
-    console.log(numbers);
 
     function prePage() {
         if (currentPage !== firstIndex) {
             setCurrentPage(currentPage - 1);
         }
     }
-    function changeCPage() {
-        setCurrentPage();
-    }
+
     function nextPage() {
         if (currentPage !== lastIndex) {
             setCurrentPage(currentPage + 1);
@@ -114,22 +110,7 @@ const Repository = () => {
                             Prev
                         </a>
                     </li>
-                    {numbers.map((n, i) => (
-                        <li
-                            className={`page-item ${
-                                currentPage === n ? "active" : ""
-                            }`}
-                            key={i}
-                        >
-                            <a
-                                href="#"
-                                className="page-item"
-                                onClick={changeCPage}
-                            >
-                                {n}
-                            </a>
-                        </li>
-                    ))}
+
                     <li className="page-item">
                         <a href="#" className="page-link" onClick={nextPage}>
                             Next
