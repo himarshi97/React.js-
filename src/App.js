@@ -1,14 +1,17 @@
 import React from "react";
 import "./App.css";
-
-import Repository from "./components/repository.js";
-
+import { Provider } from "react-redux";
+//import Repository from "./components/repository.js";
+import Readdata from "./components/readdata.js";
+import { store } from "./store.js";
 import "bootstrap/dist/css/bootstrap.min.css";
 function App() {
     return (
-        <div className="main">
-            <Repository />
-        </div>
+        <Provider store={store}>
+            <div className="main">
+                <Readdata />
+            </div>
+        </Provider>
     );
 }
 
